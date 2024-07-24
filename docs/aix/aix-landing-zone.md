@@ -19,6 +19,7 @@ This architecture diagram outlines a structured approach for migrating AIX syste
 - **VNet Gateway**: This connects different VNets together or connects VNets with on-premises networks. It is essential for routing traffic correctly within the Azure environment.
 - **Local Network Gateway**: Represents the on-premises network within Azure. It is configured with the on-premises VPN device to establish a gateway-to-gateway VPN connection.
 - **Storage Account**: Azure Storage Accounts provide a unique namespace to store and access your Azure storage data objects. Here it is used to store the Mksysb backup from the on-premises AIX systems.
+- **Jumpbox VM**: This virtual machine will be utilized to move the Mksysb backup files to the Blob Storage using AzCopy.
 
 ### **Skytap on Azure**
 - **Skytap WAN**: This feature connects the Skytap environment in Azure with other networks, such as your on-premises network or other parts of Azure through VPNs or Expres Route customer managed circuits.
