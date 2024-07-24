@@ -26,7 +26,7 @@ This architecture diagram outlines a structured approach for migrating AIX syste
 - **Jumpbox VM**: This virtual machine will be utilized to move the Mksysb backup files to the Blob Storage using AzCopy.
 
 ### **Skytap on Azure**
-- **Skytap WAN**: This feature connects the Skytap environment in Azure with other networks, such as your on-premises network or other parts of Azure through VPNs or Expres Route customer managed circuits.
+- **Skytap WAN**: This feature connects the Skytap environment in Azure with other networks, such as your on-premises network or other parts of Azure through VPNs or Expres Route customer managed circuits. Skytap WAN object represents a point of connection between Azure ExpressRoute and networks in Skytap environments.
 - **Subnets**: In Skytap, subnets are used within the virtual network to segment and manage the AIX workloads logically.
 - **NIM Server**: The Network Installation Management (NIM) server is a critical component in AIX environments. It manages the installation and maintenance of AIX systems, acting as a server from which other AIX clients can install required software and updates.
 
