@@ -24,8 +24,46 @@ This Bicep file specifies the configuration of a set of Azure resources, includi
    - `hostname`: The fully qualified domain name (FQDN) of the VM's public IP.
    - `storageAccountId`: The ID of the storage account, depending on whether a new or existing one is used.
 
-   [![Deploy To Azure](https://learn.microsoft.com/en-us/azure/templates/media/deploy-to-azure.svg)]()
-
-
 This template sets up a complete environment in Azure to prepare for the AIX migration, including networking, storage, and a virtual machine, with options for secure and managed infrastructure configurations.
+
+### 🚀 Prerequisites: ###
+
+1. **Begin by [installing the necessary tooling](https://docs.microsoft.com/azure/azure-resource-manager/bicep/install?WT.mc_id=AZ-MVP-5000671).**
+
+### 📦 Deployment Options: ###
+
+**Option 1. Local Machine Deployment:**
+
+Deploy application samples directly from your local machine using Windows Terminal and Azure PowerShell.
+
+```powershell
+$date = Get-Date -Format "MM-dd-yyyy"
+$rand = Get-Random -Maximum 1000
+$deploymentName = "SkytapDeployment-"+"$date"+"-"+"$rand"
+
+New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName skytap-landing-zone -TemplateFile .\main.bicep -TemplateParameterFile .\main.bicepparam -c
+```
+
+You can also utilize a Bicep parameters file for added flexibility.
+
+**Option 2. Azure Portal Deployment:**
+
+1. Access the Azure Portal, open CloudShell (using PowerShell), and clone this repository:
+
+```shell
+git clone https://github.com/daveRendon/skytap.git
+cd docs/aix/code/
+```
+
+2. Once in the working directory of the sample application, execute the following command:
+
+```powershell
+$date = Get-Date -Format "MM-dd-yyyy"
+$rand = Get-Random -Maximum 1000
+$deploymentName = "SkytapDeployment-"+"$date"+"-"+"$rand"
+
+New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName skytap-landing-zone -TemplateFile .\main.bicep -TemplateParameterFile .\main.bicepparam -c
+```
+
+
 
