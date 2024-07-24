@@ -32,11 +32,11 @@ To get started with Skytap Landing Zones, follow the steps below:
 2. **Select a Landing Zone (IBMi or AIX)**:
    - Utilize the provided Bicep templates and scripts to set up your initial Skytap environment in Azure.
 
-| OS | Description |
-|----------|-------------|
-| AIX      | Refer to the following document for the AIX Landing Zone: 👉 [AIX Landing Zone](docs\aix\aix-landing-zone.md)
- |
-| IBM      | Refer to the following document for the IBM i Landing Zone (work in progress) |
+| OS  | Description                                                                                                 |
+|-----|-------------------------------------------------------------------------------------------------------------|
+| AIX | Refer to the following document for the AIX Landing Zone: 👉 [AIX Landing Zone](docs/aix/aix-landing-zone.md) |
+| IBM | Refer to the following document for the IBM i Landing Zone (work in progress)                                |
+
 
 3. **Configuration**:
    - Configure the network settings according to your organizational needs.
