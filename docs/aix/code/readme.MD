@@ -1,6 +1,6 @@
 # Skytap AIX Landing Zone 
 
-The main goal of this Landing Zone is to bootstrap all the components needed to perform the migration of the AIX systems to Skytap on Azure.
+The primary objective of this Skytap AIX Landing Zone is to set up all necessary components for migrating AIX on-premises systems to Skytap on Azure.
 
 ### 🚀 Prerequisites: ###
 
