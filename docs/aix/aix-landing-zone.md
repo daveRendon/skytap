@@ -7,31 +7,47 @@ Skytap on Azure streamlines the cloud migration process for applications operati
 ![AIX Landing Zone Architecture](/assets/images/aix-landing-zone-architecture.jpg)
 
 
-This architecture diagram illustrates the migration of AIX systems from an on-premises environment to Microsoft Azure and Skytap, leveraging Azure services for enhanced networking and storage solutions. Here's a detailed breakdown of the components and their functions within this migration process:
+This architecture diagram outlines a structured approach for migrating AIX systems from an on-premises environment to Skytap on Azure. Let's explore each component and understand the flow of the migration process:
 
-### On-premises Environment:
-- **AIX Systems**: These are the IBM AIX (Advanced Interactive eXecutive) systems that are currently operating in an on-premises data center. AIX is an enterprise-class UNIX operating system that runs on IBM systems.
+### **On-premises Environment**
+- **AIX Systems**: These are the IBM AIX servers located in your local data center.
 
-### Microsoft Azure Components:
+### **Microsoft Azure Components**
 - **ExpressRoute Gateway**: This component is used to establish a dedicated and private connection from the on-premises network to Microsoft Azure. It offers more reliability, faster speeds, and lower latencies than typical Internet-based connections.
 - **Virtual Network (VNet)**: This is the fundamental building block for your private network in Azure. VNets allow many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
-- **Subnet**: A subnet is a range of IP addresses in the VNet. You can divide a VNet into multiple subnets for organizational and security purposes.
-- **VNet Gateway**: This component is used to connect VNets to each other or with on-premises networks. It acts as a router or a gateway that routes traffic accordingly.
-- **Local Network Gateway**: This logical object represents the on-premises network in Azure to facilitate the routing of data.
-- **Storage Account**: Azure Storage Accounts provide a unique namespace to store and access your Azure storage data objects. Here it is used to store data from AIX systems.
-- **Private Endpoint**: A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Here, it's used to ensure secure access to the Azure Storage Account.
+- **Subnet**: Subnets further segment the VNet, allowing you to organize and secure resources in discrete sections. This control can optimize network performance and apply different security policies.
+- **VNet Gateway**: This connects different VNets together or connects VNets with on-premises networks. It is essential for routing traffic correctly within the Azure environment.
+- **Local Network Gateway**: Represents the on-premises network within Azure. It is configured with the on-premises VPN device to establish a gateway-to-gateway VPN connection.
+- **Storage Account**: Azure Storage Accounts provide a unique namespace to store and access your Azure storage data objects. Here it is used to store the Mksysb backup from the on-premises AIX systems.
 
-### Migration Pathways:
-- **Migration to Blob Storage using ExpressRoute**: Data from the AIX systems is migrated to Azure Blob Storage via ExpressRoute, ensuring a fast and secure data transfer.
-- **Migration to Skytap using ExpressRoute**: Another pathway is directly migrating AIX systems to Skytap, an environment in Azure tailored for running traditional workloads like AIX.
+### **Skytap on Azure**
+- **Skytap WAN**: This feature connects the Skytap environment in Azure with other networks, such as your on-premises network or other parts of Azure through VPNs or Expres Route customer managed circuits.
+- **Subnets**: In Skytap, subnets are used within the virtual network to segment and manage the AIX workloads logically.
+- **NIM Server**: The Network Installation Management (NIM) server is a critical component in AIX environments. It manages the installation and maintenance of AIX systems, acting as a server from which other AIX clients can install required software and updates.
 
-### Skytap Environment:
-- **Skytap WAN**: This component represents the wide area network configuration within Skytap, which supports connectivity back to Azure or on-premises environments.
-- **Linux VM with AzCopy**: This Virtual Machine in Skytap runs Linux and uses AzCopy, a command-line utility designed to copy data to/from Azure Blob storage and between Azure Blob storage accounts.
+### **Migration Pathways**
+1. **Migration to Blob Storage Using ExpressRoute**: This pathway involves transferring data from the on-premises AIX systems to Azure Blob Storage through ExpressRoute. This is typically an initial step to securely store the Mksysb backup of the on-premises AIX.
+   
+2. **Migration to Skytap Using ExpressRoute**: Following the backup, the actual system migration takes place where the AIX workloads are transferred from the Azure Blob Storage to the Skytap environment on Azure. This is  facilitated by ExpressRoute or a VPN to ensure a secure and smooth transfer.
 
-### General Flow:
-1. **Data Transfer**: Data from the on-premises AIX systems is transferred to Azure Blob Storage using ExpressRoute for speed and security.
-2. **Networking Setup**: The entire transfer and subsequent communications are managed through a series of gateways and private endpoints that ensure the traffic is secure and efficient.
-3. **Utilization in Skytap**: Post migration, AIX systems can be managed in Skytap or Azure, with specific configurations done through VNets and subnets in Azure.
+### **Overall Flow**
+Follow these assertive steps to efficiently migrate AIX systems from an on-premises environment to Skytap on Azure:
 
-This setup ensures a smooth transition of AIX systems to a cloud environment, leveraging Azure's robust networking capabilities for an efficient and secure migration process.
+1. **Prepare On-premises AIX Systems**: Start by performing Mksysb backups of the on-premises AIX systems to secure your data.
+
+2. **Replicate Data to Azure Blob Storage**: Transfer the mksysb backups to Azure Blob Storage using ExpressRoute or VPN for enhanced security and reliability.
+
+3. **Migrate Backups to Skytap**: Utilize ExpressRoute or VPN to transfer the mksysb backup files to Skytap. Securely copy these files to the Network Installation Management (NIM) server using SCP. (https://winscp.net/download/WinSCP-6.3.4-Setup.exe/download)
+
+4. **Restore Mksysb Files**: Initiate the Mksysb restoration process on the target systems within Skytap.
+
+5. **Add Filesystem to Restored LPARs**: Include necessary temporary space on the restored Logical Partitions (LPARs) for savevg and database files.
+
+6. **Transfer Additional Backup Files (copy savevg and DB files to temporary disk on restore target)**: Copy savevg and database files to the temporary disk space allocated on the restoration targets.
+
+7. **Restore Savevg and Database Files**: Complete the restoration of savevg and database files to ensure all system and application data is accurately reinstated.
+
+8. **Manage and Maintain AIX Environments in Skytap**: Use the NIM server within Skytap to manage and maintain the AIX environments, ensuring optimal performance and efficient operation in their new cloud context.
+
+**Important Note**: Be mindful that Skytap has a storage limitation of 4 TB for x86 VMs. This constraint means that using a Windows VM in Skytap with azcopy might not be feasible for handling large data volumes due to insufficient storage capacity. Plan accordingly to accommodate data management within these limits.
+
