@@ -27,9 +27,9 @@ This architecture diagram outlines a structured approach for migrating AIX syste
 - **NIM Server**: The Network Installation Management (NIM) server is a critical component in AIX environments. It manages the installation and maintenance of AIX systems, acting as a server from which other AIX clients can install required software and updates.
 
 ### **Migration Pathways**
-1. **Migration to Blob Storage Using ExpressRoute**: This pathway involves transferring data from the on-premises AIX systems to Azure Blob Storage through ExpressRoute. This is typically an initial step to securely store the Mksysb backup of the on-premises AIX.
+1. **Migration from on-premises to Blob Storage**: This pathway involves transferring data from the on-premises AIX systems to Azure Blob Storage through ExpressRoute. This is typically an initial step to securely store the Mksysb backup of the on-premises AIX.
    
-2. **Migration to Skytap Using ExpressRoute**: Following the backup, the actual system migration takes place where the AIX workloads are transferred from the Azure Blob Storage to the Skytap environment on Azure. This is  facilitated by ExpressRoute or a VPN to ensure a secure and smooth transfer.
+2. **Migration from Blob Storage to Skytap**: Following the backup, the actual system migration takes place where the AIX workloads are transferred from the Azure Blob Storage to the Skytap environment on Azure. This is  facilitated by ExpressRoute or a VPN to ensure a secure and smooth transfer.
 
 ### **Overall Flow**
 Follow these assertive steps to efficiently migrate AIX systems from an on-premises environment to Skytap on Azure:
