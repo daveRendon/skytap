@@ -1,15 +1,15 @@
 # Skytap Landing Zones
 
-Welcome to the repository for Skytap Landing Zones on Azure. This project is designed to provide a structured approach to deploying Skytap environments in Azure, facilitating the migration and management of traditional applications such as AIX, IBM i, and legacy Unix systems in Skytap on Azure. Our goal is to ensure that enterprises can seamlessly integrate their legacy applications into Azure while maintaining the high performance, reliability, and security standards that Skytap offers.
+Welcome to the repository for Skytap Landing Zones on Azure. This project is designed to provide a structured approach to deploying Skytap environments in Azure, facilitating the migration and management of AIX and IBM i to Skytap on Azure. 
 
 ## Overview
 
-Skytap on Azure provides a unique capability for running IBM Power and x86 workloads in the cloud. It replicates traditional data center environments in Azure, enabling lift-and-shift migrations without the need to modify the applications or architectures significantly. Skytap Landing Zones are pre-configured environments that follow best practices and guidelines to optimize the deployment of these workloads on Azure.
+Skytap on Azure provides a unique capability for running IBM Power and x86 workloads in the cloud, enabling lift-and-shift migrations without the need to modify the applications or architectures significantly. Skytap Landing Zones are pre-configured environments that follow best practices and guidelines to optimize the deployment of these workloads on Azure.
 
 ### Key Components of a Skytap Landing Zone
 
 1. **Pre-configured Infrastructure**:
-   - Includes all necessary virtual network settings, storage configurations, and computing resources. This setup is tailored to meet the security, compliance, and operational requirements of the applications being migrated.
+   - Includes all necessary virtual network settings, storage configurations, and computing resources needed to perform the migration of AIX or IBM i. This setup is tailored to meet the security, compliance, and operational requirements of the applications being migrated.
 
 2. **Security and Compliance**:
    - Built with security controls and compliance guidelines in mind to ensure that the migrated applications adhere to organizational policies and regulatory standards.
@@ -35,11 +35,11 @@ Skytap on Azure provides a unique capability for running IBM Power and x86 workl
 
 ### Use Cases
 
-- **Application Migration**: Ideal for businesses moving legacy applications from an on-premises data center to the cloud to take advantage of Skytap's virtual IT lab and cloud capabilities.
-- **Disaster Recovery**: Acts as a disaster recovery site, enabling businesses to quickly spin up their IT operations in Skytap in the event of an outage or disaster at their primary site.
+- **Application Migration**: Ideal for organizations moving AIX or IBM i from an on-premises data center to Azure.
+- **Disaster Recovery**: Acts as a disaster recovery site, enabling organizations to quickly spin up their IT operations in Skytap in the event of an outage or disaster at their primary site.
 - **Development and Testing**: Provides a separate, isolated environment for development and testing without impacting production workloads.
 
-Skytap Landing Zones are part of a strategic approach to cloud adoption, ensuring that businesses can leverage the full benefits of the cloud while addressing the challenges of migration and ongoing cloud management effectively.
+Skytap Landing Zones are part of a strategic approach to cloud adoption, ensuring that organizations can leverage the full benefits of the cloud while addressing the challenges of migration and ongoing cloud management effectively.
 
 ## Getting Started
 
@@ -47,7 +47,7 @@ To get started with Skytap Landing Zones, follow the steps below:
 
 1. **Prerequisites**:
    - An active Azure subscription.
-   - An understanding of Skytap and its functionalities.
+   - A basic understanding of Skytap and its functionalities.
    - Basic knowledge of Azure services like VNets, Blob Storage, and ExpressRoute.
 
 2. **Select a Landing Zone (IBMi or AIX)**:
