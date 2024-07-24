@@ -34,7 +34,7 @@ To get started with Skytap Landing Zones, follow the steps below:
 
 | OS | Description |
 |----------|-------------|
-| AIX      | Refer to the following document for the AIX Landing Zone: 👉 [AIX Landing Zone](https://yourwebsite.com/aix-landing-zone.md)
+| AIX      | Refer to the following document for the AIX Landing Zone: 👉 [AIX Landing Zone](docs\aix\aix-landing-zone.md)
  |
 | IBM      | Refer to the following document for the IBM i Landing Zone (work in progress) |
 
