@@ -2,6 +2,10 @@
 
 Skytap on Azure streamlines the cloud migration process for applications operating on IBM Power Systems. This case study demonstrates the migration of AIX logical partitions (LPARs) to Skytap on Azure, drawing on proven strategies from recent customer implementations. A web application hosted on Microsoft Azure provides a contemporary interface to manage the resources in LPARs on Skytap on Azure.
 
+Skytap offers several strategies for migrating AIX to Skytap on Azure. For detailed guidance, refer to the following URL: [Skytap Migration Solutions](https://skytap.github.io/well-architected-framework/resiliency/solutions/mksysb-backupandrestore/#option-3---azure-blob).
+
+This AIX Landing Zone utilizes Azure and Blob Storage to ensure a secure and rapid data transfer.
+
 ## Architecture
 
 ![AIX Landing Zone Architecture](/assets/images/aix-landing-zone-architecture.jpg)
