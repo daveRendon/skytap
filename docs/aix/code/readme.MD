@@ -6,6 +6,7 @@ The main goal of this Landing Zone is to bootstrap all the components needed to 
 
 1. Begin by [installing the necessary tooling](https://docs.microsoft.com/azure/azure-resource-manager/bicep/install?WT.mc_id=AZ-MVP-5000671).
 2. Create your [Skytap on Azure account ](https://www.skytap.com/blog/creating-a-skytap-on-azure-account-from-the-azure-marketplace/)
+3. Create an [Express Route connection (customer-managed) using the Skytap Portal](https://help.skytap.com/wan-create-self-managed-expressroute.html) (Optional)
 
 ### 📝 Analysis of the Bicep template: ###
 
@@ -17,18 +18,13 @@ This Bicep creates a set of Azure resources, including a Virtual Network, Virtua
    - The template also includes settings for the virtual machine, such as the admin username, password, DNS label, VM size, and security type.
 
 2. **Resources**. The `main.bicep` file defines the below:
-    1. Create a VNet
-    2. Create a Subnet Gateway
-    3. Create a VNet Gateway with the gateway type set to ExpressRoute
-    4. Create the ExR connection
-    5. Create a storage account private endpoint
-    6. Deploy a VM with AzCopy to move the data
-
+   
    - **Virtual Network (vnet)**: Creates a virtual network with specified address space.
    - **Subnets**: Defines subnets within the virtual network, including a *GatewaySubnet* and another subnet with an associated network security group.
    - **Local Network Gateway**: Sets up a local network gateway with specified IP address and address space, typically used in hybrid network scenarios.
    - **Public IP (gatewayPublicIP, vmPublicIp)**: Configures public IP addresses for the VPN gateway and the virtual machine.
    - **Virtual Network Gateway (vnetGateway)**: Creates an ExpressRoute Gateway with specified SKU and configuration.
+   - **Express Route connection**: If there's already an Express Route deployed, the Bicep template will configure the Express Route connection to Skytap.
    - **Storage Account**: This Bicep template create a new storage account or it can use an existing storage account.
    - **Private Endpoint**: Configures a private endpoint for secure access to the storage account.
    - **Network Security Group**: Sets security rules for network traffic control.
