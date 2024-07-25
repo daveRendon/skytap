@@ -4,21 +4,26 @@ The primary objective of this Skytap AIX Landing Zone is to set up all necessary
 
 ### 🚀 Prerequisites: ###
 
-1. Begin by [installing the necessary tooling (VS Code and Bicep)](https://docs.microsoft.com/azure/azure-resource-manager/bicep/install?WT.mc_id=AZ-MVP-5000671).
-2. Create your [Skytap on Azure account ](https://www.skytap.com/blog/creating-a-skytap-on-azure-account-from-the-azure-marketplace/)
-3. Create an [Express Route connection (customer-managed) using the Skytap Portal](https://help.skytap.com/wan-create-self-managed-expressroute.html) (Optional)
-4. Create a resource group called `skytap-landing-zone`
+1. **Install Required Tooling:** [VS Code and Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/install?WT.mc_id=AZ-MVP-5000671).
+2. **Create Your Skytap Account:** [Skytap on Azure](https://www.skytap.com/blog/creating-a-skytap-on-azure-account-from-the-azure-marketplace/).
+3. **Set Up ExpressRoute Connection (Optional):** [Using the Skytap Portal](https://help.skytap.com/wan-create-self-managed-expressroute.html).
+4. **Create Resource Group:** Name it `skytap-landing-zone`.
 
-### 📝 Analysis of the Bicep template: ###
+## 📝 Analysis of the Bicep template: ###
 
 This Bicep creates a set of Azure resources, including a Virtual Network, Virtual Machines, and associated components. Here's a breakdown of the key components and their purpose:
 
-1. **Parameters**. The `main.bicepparam` file defines the below:
-   - Define values like location, resource group name, storage account name, and more.
-   - Parameters include `newOrExisting`, which determines whether a new or existing storage account is used.
-   - The template also includes settings for the virtual machine, such as the admin username, password, DNS label, VM size, and security type.
+### Parameters
+ The `main.bicepparam` file defines the below:
 
-2. **Resources**. The `main.bicep` file defines the below:
+- **Location, Resource Group Name, Storage Account Name**: Define essential values.
+- **VM Settings**: Includes admin username, password, DNS label, VM size, and security type.
+- **New or Existing Storage**: Determine if a new or existing storage account is used.
+
+The template also includes settings for the virtual machine, such as the admin username, password, DNS label, VM size, and security type.
+
+### Resources
+ The `main.bicep` file defines the below:
    
    - **Virtual Network (vnet)**: Creates a virtual network with specified address space.
    - **Subnets**: Defines subnets within the virtual network, including a *GatewaySubnet* and another subnet with an associated network security group.
@@ -33,7 +38,7 @@ This Bicep creates a set of Azure resources, including a Virtual Network, Virtua
    - **Virtual Machine (vm)**: Creates a Windows VM with specified settings, including admin credentials, disk configuration, and security profile (TrustedLaunch if specified).
    - **VM Extension**: Adds a custom script extension to the VM to download and install the AzCopy tool.
 
-3. **Outputs**:
+### Outputs
    - `hostname`: The fully qualified domain name (FQDN) of the VM's public IP.
    - `storageAccountId`: The ID of the storage account, depending on whether a new or existing one is used.
 
@@ -41,9 +46,9 @@ This template sets up a complete environment in Azure to prepare for the AIX mig
 
 
 
-### 📦 Deployment Options: ###
+## 📦 Deployment Options: ##
 
-**Option 1. Local Machine Deployment:**
+### Option 1: Local Machine Deployment
 
 Deploy application samples directly from your local machine using Windows Terminal and Azure PowerShell.
 
@@ -57,23 +62,26 @@ New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName skytap-la
 
 You can also utilize a Bicep parameters file for added flexibility.
 
-**Option 2. Azure Portal Deployment:**
+### Option 2: Azure Portal Deployment
 
-1. Access the Azure Portal, open CloudShell (using PowerShell), and clone this repository:
+1. Open CloudShell(PowerShell) in the [Azure Portal](https://portal.azure.com) and clone the repository:
 
-```shell
+```powershell
 git clone https://github.com/daveRendon/skytap.git
 cd skytap/docs/aix/code/
 ```
 
-2. Once in the working directory of the sample application, execute the following command:
+2. Run the deployment script:
 
 ```powershell
 ./bicep-rg-deploy.ps1
 ```
-The deployment process can take up to 45 mins. The image below shows an example of the deployment output:
+Deployment takes up to 45 minutes. Example output:
 
 ![Deployment Output](/assets/images/aix-landing-zone-deployment-output.jpg)
+
+
+## Post-Deployment Steps
 
 Once the deployment completes, you can follow the below steps: 
 
@@ -83,7 +91,7 @@ Once the deployment completes, you can follow the below steps:
 
 1. **Deploy NIM Server in Skytap**: Deploy a NIM server in your Skytap environment.
 
-1. **Migrate the Mksysb Backups from Blob Storage to Skytap**: Securely copy the Mksysb files from the JumpboxVM data disks to the Network Installation Management (NIM) server using SCP. (https://winscp.net/download/WinSCP-6.3.4-Setup.exe/download)
+1. **Migrate the Mksysb Backups from Blob Storage to Skytap**: Copy the Mksysb files from the JumpboxVM data disks to the NIM server using SCP. (https://winscp.net/download/WinSCP-6.3.4-Setup.exe/download)
 
 1. **Restore Mksysb Files**: Initiate the Mksysb restoration process on the target systems within Skytap.
 
