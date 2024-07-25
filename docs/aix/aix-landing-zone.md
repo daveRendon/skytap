@@ -1,4 +1,4 @@
-## Migrate AIX workloads to Skytap on Azure
+## Skytap AIX Landing Zone: Migrate AIX workloads to Skytap on Azure
 
 Skytap offers several strategies for migrating AIX to Skytap on Azure. For detailed guidance, refer to the following URL: [Skytap Migration Solutions](https://skytap.github.io/well-architected-framework/resiliency/solutions/mksysb-backupandrestore/#option-3---azure-blob).
 

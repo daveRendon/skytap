@@ -1,4 +1,4 @@
-# Skytap AIX Landing Zone 
+# Deploy Skytap AIX Landing Zone 
 
 The primary objective of this Skytap AIX Landing Zone is to set up all necessary components for migrating AIX on-premises systems to Skytap on Azure.
 
