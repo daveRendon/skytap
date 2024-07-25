@@ -1,4 +1,4 @@
-## Skytap AIX Landing Zone: Migrate AIX workloads to Skytap on Azure
+# Skytap AIX Landing Zone: Migrate AIX workloads to Skytap on Azure
 
 Skytap offers several strategies for migrating AIX to Skytap on Azure. For detailed guidance, refer to the following URL: [Skytap Migration Solutions](https://skytap.github.io/well-architected-framework/resiliency/solutions/mksysb-backupandrestore/#option-3---azure-blob).
 
@@ -8,6 +8,7 @@ The Skytap AIX landing zone accelerator outlines the strategic design and target
 
 ![AIX Landing Zone Architecture](/assets/images/aix-landing-zone-architecture.jpg)
 
+👉[Deploy Skytap AIX Landing Zone](/docs/aix/code/readme.MD)
 
 This architecture diagram outlines a structured approach for migrating AIX systems from an on-premises environment to Skytap on Azure. Let's explore each component and understand the flow of the migration process:
 
@@ -24,8 +25,8 @@ This architecture diagram outlines a structured approach for migrating AIX syste
 - **Jumpbox VM**: This virtual machine will be utilized to move the Mksysb backup files to the Blob Storage using AzCopy.
 
 ### **Skytap on Azure**
-- **Skytap WAN**: This feature connects the Skytap environment in Azure with other networks, such as your on-premises network or other parts of Azure through VPNs or Expres Route customer managed circuits. Skytap WAN object represents a point of connection between Azure ExpressRoute and networks in Skytap environments.
-- **Subnets**: In Skytap, subnets are used within the virtual network to segment and manage the AIX workloads logically.
+- **Skytap WAN**: Connects the Skytap environment in Azure with other networks, such as your on-premises network or other parts of Azure through VPNs or ExpressRoute customer-managed circuits. Represents a point of connection between Azure ExpressRoute and networks in Skytap environments.
+- **Subnets**: Used within the virtual network to segment and manage the AIX workloads logically.
 - **NIM Server**: The Network Installation Management (NIM) server is a critical component in AIX environments. It manages the installation and maintenance of AIX systems, acting as a server from which other AIX clients can install required software and updates.
 
 ### **Migration Pathways**
@@ -40,7 +41,7 @@ Follow these assertive steps to efficiently migrate AIX systems from an on-premi
 
 2. **Replicate Data to Azure Blob Storage**: Transfer the mksysb backups to Azure Blob Storage using ExpressRoute or VPN for enhanced security and reliability.
 
-3. **Migrate Backups to Skytap**: Utilize ExpressRoute or VPN to transfer the mksysb backup files to Skytap. Securely copy these files to the Network Installation Management (NIM) server using SCP. (https://winscp.net/download/WinSCP-6.3.4-Setup.exe/download)
+3. **Migrate Backups to Skytap**: Utilize ExpressRoute or VPN to transfer the mksysb backup files to Skytap. Securely copy these files to the Network Installation Management (NIM) server using SCP. [Download WinSCP](https://winscp.net/download/WinSCP-6.3.4-Setup.exe/download)
 
 4. **Restore Mksysb Files**: Initiate the Mksysb restoration process on the target systems within Skytap.
 
