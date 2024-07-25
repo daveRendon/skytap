@@ -62,17 +62,13 @@ You can also utilize a Bicep parameters file for added flexibility.
 
 ```shell
 git clone https://github.com/daveRendon/skytap.git
-cd docs/aix/code/
+cd skytap/docs/aix/code/
 ```
 
 2. Once in the working directory of the sample application, execute the following command:
 
 ```powershell
-$date = Get-Date -Format "MM-dd-yyyy"
-$rand = Get-Random -Maximum 1000
-$deploymentName = "SkytapDeployment-"+"$date"+"-"+"$rand"
-
-New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName skytap-landing-zone -TemplateFile .\main.bicep -TemplateParameterFile .\main.bicepparam -c
+./bicep-rg-deploy.ps1
 ```
 
 Once the deployment completes, you can follow the below steps: 

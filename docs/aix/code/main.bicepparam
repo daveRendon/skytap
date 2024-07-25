@@ -2,8 +2,8 @@ using './main.bicep'
 
 param location = 'eastus'
 param resourceGroupName = 'skytap-landing-zone'
-param storageAccountName = 'skytapsa0021'
-param newOrExisting = 'existing' // allowed values: 'new', 'existing' for the Storage acccount that will host the Mksysb
+param storageAccountName = 'skytapsa0021' //UPDATE THIS TO YOUR STORAGE ACCOUNT NAME
+param newOrExisting = 'new' // allowed values: 'new', 'existing' for the Storage acccount that will host the Mksysb
 param vnetName = 'skytap-vnet'
 param localNetworkGatewayName = 'skytap-localNetGateway'
 param vnetGatewayName = 'skytap-vnetGateway'
