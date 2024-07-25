@@ -2,6 +2,8 @@
 
 Welcome to the repository for Skytap Landing Zones on Azure. This project is designed to provide a structured approach to deploying Skytap environments in Azure, facilitating the migration and management of AIX and IBM i to Skytap on Azure. 
 
+🌟 Star this repository now to stay updated and show your support for the project
+
 ## Overview
 
 Skytap on Azure provides a unique capability for running IBM Power and x86 workloads in the cloud, enabling lift-and-shift migrations without the need to modify the applications or architectures significantly. Skytap Landing Zones are pre-configured environments that follow best practices and guidelines to optimize the deployment of these workloads on Azure.
@@ -32,12 +34,6 @@ Skytap on Azure provides a unique capability for running IBM Power and x86 workl
 - **Accelerate Migration**: Speeds up the migration process by offering a ready-to-use environment that reduces the setup time and complexity involved in configuring cloud resources from scratch.
 - **Best Practices Integration**: Integrates best practices for cloud deployment, management, and security, ensuring a robust and efficient cloud environment.
 - **Consistency and Standardization**: Provides a standardized approach to deploying workloads in the cloud, ensuring consistency across various projects and teams within an organization.
-
-### Use Cases
-
-- **Application Migration**: Ideal for organizations moving AIX or IBM i from an on-premises data center to Azure.
-- **Disaster Recovery**: Acts as a disaster recovery site, enabling organizations to quickly spin up their IT operations in Skytap in the event of an outage or disaster at their primary site.
-- **Development and Testing**: Provides a separate, isolated environment for development and testing without impacting production workloads.
 
 Skytap Landing Zones are part of a strategic approach to cloud adoption, ensuring that organizations can leverage the full benefits of the cloud while addressing the challenges of migration and ongoing cloud management effectively.
 
