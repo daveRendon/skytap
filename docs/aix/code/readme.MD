@@ -91,24 +91,3 @@ Once the deployment completes, you can follow the below steps:
 1. **Transfer Additional Backup Files (copy savevg and DB files to temporary disk on restore target)**: Copy savevg and database files to the temporary disk space allocated on the restoration targets.
 
 1. **Restore Savevg and Database Files**: Complete the restoration of savevg and database files to ensure all system and application data is accurately reinstated.
-
-
-
-
-Once the deployment completes, you can follow the below steps: 
-
-1. **Replicate Data to Azure Blob Storage**: Transfer the mksysb backups to Azure Blob Storage using the JumpboxVM and AzCopy.
-
-1. **Migrate the Mksysb Backups from Blob Storage to Skytap**: Securely copy these files to the Network Installation Management (NIM) server using SCP. (https://winscp.net/download/WinSCP-6.3.4-Setup.exe/download)
-
-1. **Restore Mksysb Files**: Initiate the Mksysb restoration process on the target systems within Skytap.
-
-1. **Add Filesystem to Restored LPARs**: Include necessary temporary space on the restored Logical Partitions (LPARs) for savevg and database files.
-
-1. **Transfer Additional Backup Files (copy savevg and DB files to temporary disk on restore target)**: Copy savevg and database files to the temporary disk space allocated on the restoration targets.
-
-1. **Restore Savevg and Database Files**: Complete the restoration of savevg and database files to ensure all system and application data is accurately reinstated.
-
-1. **Manage and Maintain AIX Environments in Skytap**: Use the NIM server within Skytap to manage and maintain the AIX environments, ensuring optimal performance and efficient operation in their new cloud context.
-
-
