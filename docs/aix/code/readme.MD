@@ -7,6 +7,7 @@ The primary objective of this Skytap AIX Landing Zone is to set up all necessary
 1. Begin by [installing the necessary tooling (VS Code and Bicep)](https://docs.microsoft.com/azure/azure-resource-manager/bicep/install?WT.mc_id=AZ-MVP-5000671).
 2. Create your [Skytap on Azure account ](https://www.skytap.com/blog/creating-a-skytap-on-azure-account-from-the-azure-marketplace/)
 3. Create an [Express Route connection (customer-managed) using the Skytap Portal](https://help.skytap.com/wan-create-self-managed-expressroute.html) (Optional)
+4. Create a resource group called `skytap-landing-zone`
 
 ### 📝 Analysis of the Bicep template: ###
 
