@@ -89,7 +89,56 @@ Once the deployment completes, you can follow the below steps:
 
 1. **Setup Connectivity to Skytap**: Configure a VPN connection or ExpressRoute circuit from Azure to the Skytap environment.
 
-1. **Deploy NIM Server in Skytap**: Deploy a NIM server in your Skytap environment.
+1. **Deploy NIM Server in Skytap**: Deploy a NIM server in your Skytap environment. You can use the create-nim-server.py to deplooy the NIM Server in Skytap.
+
+     The Python script provided is designed to authenticate to the Skytap API using your credentials (username and API token) and then make a request to create a new environment that includes a Network Installation Management (NIM) server, based on a specified template. 
+
+     #### Preparing your python script to deploy NIM Server:
+   1. **API Credentials**: You must have valid Skytap API credentials (username and API token). These are crucial for the authentication part of the script.
+   2. **Template ID**: The script assumes you have a predefined template that includes a NIM server configuration. You need to replace `"your_template_id_with_nim_server"` with the actual ID of this template.
+   
+      To find the template ID of the NIM (Network Installation Management) server in the Skytap portal, you can follow these steps:
+
+      1. **Log In to Skytap**: Sign in to your Skytap account.
+
+      2. **Navigate to Templates**: Once logged in, look for the navigation bar or menu and select "Templates" or a similarly named section where your saved templates are listed.
+
+      3. **Locate the NIM Server Template**: Search through your list of templates to find the one for the NIM server. You might need to use the search function if you have many templates.
+
+      4. **View Template Details**: Click on the NIM server template to open its detailed view. The template ID is usually displayed in the details section, often in the URL or on the template information page.
+
+      5. **Copy the Template ID**: Once you locate the template ID, copy it for use in your scripts or documentation.
+
+
+   3. **Python Environment**: Ensure Python is installed on your system along with the `requests` library. If not, you can install Python from [python.org](https://www.python.org/downloads/) and install the `requests` library using pip:
+
+      ```bash
+      pip install requests
+      ```
+
+   #### Considerations:
+   - **Security**: The script uses basic authentication, which involves sending your username and API token in the request headers.
+   - **Permissions**: Your Skytap API user account needs to have the necessary permissions to create environments. If you encounter permissions errors, you may need to adjust your account settings or contact your Skytap administrator.
+
+   #### Running the Script:
+   To run the script:
+   1. Open your text editor or Python IDE.
+   2. Open the `create_nim_server.py` file.
+   3. Replace `your_username` and `your_api_token` with your actual Skytap API credentials.
+   4. Replace `your_template_id_with_nim_server` with the actual template ID that has a NIM server.
+   5. Save the file.
+   6. Open a command line or terminal.
+   7. Navigate to the directory where the file is saved.
+   8. Run the script by typing:
+      ```bash
+      python create_nim_server.py
+      ```
+
+   #### Expected Outcome:
+   If all configurations are correct and you have sufficient permissions, the script will authenticate to Skytap, create a new environment based on the specified template, and print the details of the newly created environment. If there are any issues, it will print the error details provided by the Skytap API.
+
+
+
 
 1. **Migrate the Mksysb Backups from Blob Storage to Skytap**: Copy the Mksysb files from the JumpboxVM data disks to the NIM server using SCP. (https://winscp.net/download/WinSCP-6.3.4-Setup.exe/download)
 
