@@ -32,26 +32,28 @@ This architecture diagram outlines a structured approach for migrating AIX syste
 ### **Migration Pathways**
 1. **Migration from on-premises to Blob Storage**: This pathway involves transferring data from the on-premises AIX systems to Azure Blob Storage through ExpressRoute. This is typically an initial step to securely store the Mksysb backup of the on-premises AIX.
    
-2. **Migration from Blob Storage to Skytap**: Following the backup, the actual system migration takes place where the AIX workloads are transferred from the Azure Blob Storage to the Skytap environment on Azure. This is  facilitated by ExpressRoute or a VPN to ensure a secure and smooth transfer.
+1. **Migration from Blob Storage to Skytap**: Following the backup, the actual system migration takes place where the AIX workloads are transferred from the Azure Blob Storage to the Skytap environment on Azure. This is  facilitated by ExpressRoute or a VPN to ensure a secure and smooth transfer.
 
 ### **Overall Flow**
 Follow these assertive steps to efficiently migrate AIX systems from an on-premises environment to Skytap on Azure:
 
 1. **Prepare On-premises AIX Systems**: Start by performing Mksysb backups of the on-premises AIX systems to secure your data.
 
-2. **Replicate Data to Azure Blob Storage**: Transfer the mksysb backups to Azure Blob Storage using ExpressRoute or VPN for enhanced security and reliability.
+1. **Replicate Data to Azure Blob Storage**: Transfer the mksysb backups to Azure Blob Storage using ExpressRoute or VPN for enhanced security and reliability. Then, transfer the backups from the blob storage to the Jumpbox VM.
 
-3. **Migrate Backups to Skytap**: Utilize ExpressRoute or VPN to transfer the mksysb backup files to Skytap. Securely copy these files to the Network Installation Management (NIM) server using SCP. [Download WinSCP](https://winscp.net/download/WinSCP-6.3.4-Setup.exe/download)
+1. **Create NIM Server in Skytap**: Create a NIM Server in your Skytap environment. You can do so by using the Skytap Portal or using the following [Python Scrip to create NIM Server in Skytap](/docs/aix/code/nim-server.py)
 
-4. **Restore Mksysb Files**: Initiate the Mksysb restoration process on the target systems within Skytap.
+1. **Migrate Backups to Skytap**: Utilize ExpressRoute or VPN to transfer the mksysb backup files to Skytap. Securely copy these files from the Jumpbox VM to the Network Installation Management (NIM) server using SCP. [Download WinSCP](https://winscp.net/download/WinSCP-6.3.4-Setup.exe/download)
 
-5. **Add Filesystem to Restored LPARs**: Include necessary temporary space on the restored Logical Partitions (LPARs) for savevg and database files.
+1. **Restore Mksysb Files**: Initiate the Mksysb restoration process on the target systems within Skytap.
 
-6. **Transfer Additional Backup Files (copy savevg and DB files to temporary disk on restore target)**: Copy savevg and database files to the temporary disk space allocated on the restoration targets.
+1. **Add Filesystem to Restored LPARs**: Include necessary temporary space on the restored Logical Partitions (LPARs) for savevg and database files.
 
-7. **Restore Savevg and Database Files**: Complete the restoration of savevg and database files to ensure all system and application data is accurately reinstated.
+1. **Transfer Additional Backup Files (copy savevg and DB files to temporary disk on restore target)**: Copy savevg and database files to the temporary disk space allocated on the restoration targets.
 
-8. **Manage and Maintain AIX Environments in Skytap**: Use the NIM server within Skytap to manage and maintain the AIX environments, ensuring optimal performance and efficient operation in their new cloud context.
+1. **Restore Savevg and Database Files**: Complete the restoration of savevg and database files to ensure all system and application data is accurately reinstated.
+
+1. **Manage and Maintain AIX Environments in Skytap**: Use the NIM server within Skytap to manage and maintain the AIX environments, ensuring optimal performance and efficient operation in their new cloud context.
 
 **Important Note**: Be mindful that Skytap has a storage limitation of 4 TB for x86 VMs. This constraint means that using a Windows VM in Skytap with azcopy might not be feasible for handling large data volumes due to insufficient storage capacity. Plan accordingly to accommodate data management within these limits.
 
