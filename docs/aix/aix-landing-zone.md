@@ -41,7 +41,7 @@ Follow these assertive steps to efficiently migrate AIX systems from an on-premi
 
 1. **Replicate Data to Azure Blob Storage**: Transfer the mksysb backups to Azure Blob Storage using ExpressRoute or VPN for enhanced security and reliability. Then, transfer the backups from the blob storage to the Jumpbox VM.
 
-1. **Create NIM Server in Skytap**: Create a NIM Server in your Skytap environment. You can do so by using the Skytap Portal or using the following [Python Scrip to create NIM Server in Skytap](/docs/aix/code/nim-server.py)
+1. **Create NIM Server in Skytap**: Create a NIM Server in your Skytap environment. You can do so by using the Skytap Portal or using the following [Python Script to create NIM Server in Skytap](/docs/aix/code/nim-server.py)
 
 1. **Migrate Backups to Skytap**: Utilize ExpressRoute or VPN to transfer the mksysb backup files to Skytap. Securely copy these files from the Jumpbox VM to the Network Installation Management (NIM) server using SCP. [Download WinSCP](https://winscp.net/download/WinSCP-6.3.4-Setup.exe/download)
 
