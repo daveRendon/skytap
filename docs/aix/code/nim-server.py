@@ -2,9 +2,13 @@ import requests
 from requests.auth import HTTPBasicAuth
 import json
 
-base_url = 'https://cloud.skytap.com/'
 # Your Skytap "Login name" from the Skytap Portal and API token
-auth_sky = ("login_name","API_token")
+login_name='your-login-name-here'
+API_token='your-api-token-here'
+
+base_url = 'https://cloud.skytap.com/'
+
+auth_sky = (login_name,API_token)
 headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
