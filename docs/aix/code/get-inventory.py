@@ -3,8 +3,8 @@ from requests.auth import HTTPBasicAuth
 import json
 
 # Your Skytap "Login name" from the Skytap Portal and API token
-login_name='your-login-name'
-API_token='your-api-token'
+login_name='your_login_name'
+API_token='your_API_token'
 
 base_url = 'https://cloud.skytap.com/'
 auth_sky = (login_name,API_token)
@@ -14,7 +14,7 @@ headers = {
 }
 
 # Replace with your specific environment (configuration) ID
-environment_id = 'your-environment-id'
+environment_id = 'your_environment_id'
 
 # Skytap API endpoint to get the environment details
 url = f'https://cloud.skytap.com/v2/configurations/{environment_id}'
@@ -31,10 +31,14 @@ if response.status_code == 200:
     # Extract the VMs (LPARs) from the environment data
     vms = environment_data.get('vms', [])
     
-    # Initialize markdown table
-    markdown_table = "| VM ID            | Name               | Status     | OS                  | vCPUs | Memory (GB) |\n"
-    markdown_table += "|------------------|--------------------|------------|---------------------|-------|-------------|\n"
+    # Initialize markdown table with storage column
+    markdown_table = "| VM ID            | Name               | Status     | OS                  | vCPUs | Memory (GB) | Storage (GB) |\n"
+    markdown_table += "|------------------|--------------------|------------|---------------------|-------|-------------|--------------|\n"
     
+    total_vcpus = 0
+    total_memory_gb = 0
+    total_storage_gb = 0
+
     for vm in vms:
         vm_id = vm.get('id', 'N/A')
         name = vm.get('name', 'N/A')
@@ -49,10 +53,28 @@ if response.status_code == 200:
         
         # Convert memory from MB to GB
         memory_gb = memory_mb / 1024 if memory_mb != 'N/A' else 'N/A'
+
+        # Calculate total storage in GB
+        storage_gb = 0
+        for disk in hardware.get('disks', []):
+            storage_gb += disk.get('size', 0) / 1024
+
+        # Update totals
+        total_vcpus += vcpus
+        total_memory_gb += memory_gb
+        total_storage_gb += storage_gb
         
         # Append row to markdown table
-        markdown_table += f"| {vm_id:<16} | {name:<18} | {status:<10} | {os:<19} | {vcpus:<5} | {memory_gb:<11} |\n"
+        markdown_table += f"| {vm_id:<16} | {name:<18} | {status:<10} | {os:<19} | {vcpus:<5} | {memory_gb:<11.2f} | {storage_gb:<12.2f} |\n"
     
+    # Convert total storage from GB to TB
+    total_storage_tb = total_storage_gb / 1024
+
+   # Append totals to the markdown table
+    markdown_table += "|------------------|--------------------|------------|---------------------|-------|-------------|--------------|\n"
+    markdown_table += f"| {'TOTAL':<16} | {'':<18} | {'':<10} | {'':<19} | {total_vcpus:<5} | {total_memory_gb:<11.2f} | {total_storage_tb:<9.2f} TB |\n"
+    
+
     # Print the markdown table
     print(markdown_table)
 else:
