@@ -33,8 +33,8 @@ if response.status_code == 200:
     vms = environment_data.get('vms', [])
     
    # Initialize markdown table with EC column
-    markdown_table = "| VM ID            | Name               | Status     | OS                  | vCPUs | Memory (GB) | Storage (GB) | EC           |\n"
-    markdown_table += "|------------------|--------------------|------------|---------------------|-------|-------------|--------------|--------------|\n"
+    markdown_table = "| VM ID            | Name               | Status     | OS                  | vCPUs | Memory (GB) | Storage (GB) | EC     |\n"
+    markdown_table += "|------------------|--------------------|------------|---------------------|-------|-------------|--------------|--------|\n"
     
     total_vcpus = 0
     total_memory_gb = 0
@@ -71,14 +71,14 @@ if response.status_code == 200:
         total_entitled_capacity += entitled_capacity
         
         # Append row to markdown table
-        markdown_table += f"| {vm_id:<16} | {name:<18} | {status:<10} | {os:<19} | {vcpus:<5} | {memory_gb:<11.2f} | {storage_gb:<12.2f} | {entitled_capacity:<12.2f} |\n"
+        markdown_table += f"| {vm_id:<16} | {name:<18} | {status:<10} | {os:<19} | {vcpus:<5} | {memory_gb:<11.2f} | {storage_gb:<12.2f} | {entitled_capacity:<6.2f} |\n"
     
     # Convert total storage from GB to TB
     total_storage_tb = total_storage_gb / 1024
 
    # Append totals to the markdown table
-    markdown_table += "|------------------|--------------------|------------|---------------------|-------|-------------|--------------|--------------|\n"
-    markdown_table += f"| {'TOTAL':<16} | {'':<18} | {'':<10} | {'':<19} | {total_vcpus:<5} | {total_memory_gb:<11.2f} | {total_storage_tb:<9.2f} TB | {total_entitled_capacity:<12.2f} |\n"
+    markdown_table += "|------------------|--------------------|------------|---------------------|-------|-------------|--------------|--------|\n"
+    markdown_table += f"| {'TOTAL':<16} | {'':<18} | {'':<10} | {'':<19} | {total_vcpus:<5} | {total_memory_gb:<11.2f} | {total_storage_tb:<9.2f} TB | {total_entitled_capacity:<6.2f} |\n"
 
     # Print the markdown table
     print(markdown_table)
