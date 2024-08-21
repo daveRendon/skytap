@@ -3,8 +3,8 @@ from requests.auth import HTTPBasicAuth
 import json
 
 # Your Skytap "Login name" from the Skytap Portal and API token
-login_name='daverendon_admin'
-API_token='a71309131d5a2eb42e114050fca262a6e07dd533'
+login_name='your_login_name'
+API_token='your_API_token'
 
 base_url = 'https://cloud.skytap.com/'
 auth_sky = (login_name,API_token)
@@ -15,7 +15,7 @@ headers = {
 
 # Replace with your specific environment (configuration) ID
 # Example: https://cloud.skytap.com/configurations/159726802?section=vms&sort=name&thumbnails=shown
-environment_id = '159726802'
+environment_id = 'your_environment_id'
 
 # Skytap API endpoint to get the environment details
 url = f'https://cloud.skytap.com/v2/configurations/{environment_id}'
