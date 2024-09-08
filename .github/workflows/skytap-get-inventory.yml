@@ -34,7 +34,7 @@ jobs:
           API_TOKEN: ${{ secrets.SKYTAP_API_TOKEN }}
           ENVIRONMENT_ID: ${{ secrets.SKYTAP_ENVIRONMENT_ID }}
         run: |
-          python - << 'EOF'
+          python <<EOF
 import os
 import requests
 import json
