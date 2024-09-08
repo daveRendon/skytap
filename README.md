@@ -42,6 +42,7 @@ Follow these steps to start with Skytap Landing Zones:
    - An active Azure subscription.
    - A basic understanding of Skytap and its functionalities.
    - Basic knowledge of Azure services like VNets, Blob Storage, and ExpressRoute.
+   - An active Skytap on Azure subscription. You can create one by following these [instructions](https://blog.azinsider.net/deploy-skytap-on-azure-using-bicep-language-to-run-your-ibm-power-workloads-a245e7c3287e?source=friends_link&sk=a863322248b8aba5288da813d569afdc)
 
 2. **Select a Landing Zone (IBMi or AIX)**:
    - Utilize the provided Bicep Language templates and scripts to set up your initial Skytap environment in Azure.
