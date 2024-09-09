@@ -1,10 +1,7 @@
 name: SkytapApiGetInventory
 
-# Trigger the workflow on push to the main branch
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:  # This enables manual execution
 
 jobs:
   run-python-script:
