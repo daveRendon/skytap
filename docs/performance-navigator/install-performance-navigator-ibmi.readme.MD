@@ -16,7 +16,7 @@
 4. Start Performance Navigator:  
    Click on the Performance Navigator icon on your desktop. The first time you start it, you will be prompted to install the IBM i host code.
 
-![alt](../assets/images/performance-navigator/perfnav-02.jpg)
+![alt](/assets/images/performance-navigator/perfnav-02.jpg)
 
 
 
@@ -27,17 +27,17 @@
 1. Download the `setupPERFNAV.exe` Windows IBM i Host Code install program.
  - Click the download buttom when prompted to download the `setupPERFNAV.exe`
 
-![alt](../assets/images/performance-navigator/perfnav-03.jpg)
+![alt](/assets/images/performance-navigator/perfnav-03.jpg)
 
  
 
 2. Run the `setupPERFNAV.exe` program.  
 
-![alt](../assets/images/performance-navigator/perfnav-04.jpg)
+![alt](/assets/images/performance-navigator/perfnav-04.jpg)
 
-![alt](../assets/images/performance-navigator/perfnav-05.jpg)
-![alt](../assets/images/performance-navigator/perfnav-06.jpg)
-![alt](../assets/images/performance-navigator/perfnav-07.jpg)
+![alt](/assets/images/performance-navigator/perfnav-05.jpg)
+![alt](/assets/images/performance-navigator/perfnav-06.jpg)
+![alt](/assets/images/performance-navigator/perfnav-07.jpg)
 
 
 
@@ -48,17 +48,17 @@
 ### Step 3: Connect Windows GUI to IBM i Partitions
 
 1. Enter the partition IP address, ID, and password.  
-![alt](../assets/images/performance-navigator/perfnav-08.jpg)
+![alt](/assets/images/performance-navigator/perfnav-08.jpg)
 
-![alt](../assets/images/performance-navigator/perfnav-09.jpg)
+![alt](/assets/images/performance-navigator/perfnav-09.jpg)
 
 2. Select the **Immediate install** option.  
-![alt](../assets/images/performance-navigator/perfnav-10.jpg)
-![alt](../assets/images/performance-navigator/perfnav-11.jpg)
-![alt](../assets/images/performance-navigator/perfnav-12.jpg)
+![alt](/assets/images/performance-navigator/perfnav-010.jpg)
+![alt](/assets/images/performance-navigator/perfnav-011.jpg)
+![alt](/assets/images/performance-navigator/perfnav-012.jpg)
 
 3. Click the **Restart** button to install other partitions if needed.  
-![alt](../assets/images/performance-navigator/perfnav-13.jpg)
+![alt](/assets/images/performance-navigator/perfnav-013.jpg)
 
 
 #### Configure the Job Scheduler
@@ -68,20 +68,20 @@
 - **IBM ACS ODBC Driver**: Performance Navigator uses this driver to connect to IBM i partitions.  
 - Click **Yes** to install the ODBC driver.  
 
-![alt](../assets/images/performance-navigator/perfnav-14.jpg)
+![alt](/assets/images/performance-navigator/perfnav-014.jpg)
 
 - Follow the URL to download the IBM i Access Client Solutions and agree to the terms and conditions.
 
-![alt](../assets/images/performance-navigator/perfnav-15.jpg)
-![alt](../assets/images/performance-navigator/perfnav-16.jpg)
+![alt](/assets/images/performance-navigator/perfnav-015.jpg)
+![alt](/assets/images/performance-navigator/perfnav-016.jpg)
 
-![alt](../assets/images/performance-navigator/perfnav-17.jpg)
+![alt](/assets/images/performance-navigator/perfnav-017.jpg)
 
 Then, a process will be executed to attempt the connection to the LPAR as shown below:
 
-![alt](../assets/images/performance-navigator/perfnav-18.jpg)
+![alt](/assets/images/performance-navigator/perfnav-018.jpg)
 
-![alt](../assets/images/performance-navigator/perfnav-19.jpg)
+![alt](/assets/images/performance-navigator/perfnav-019.jpg)
 
 
 ---
@@ -96,9 +96,9 @@ Then, a process will be executed to attempt the connection to the LPAR as shown 
    - Reply **NO** to the host code installation prompt.
    - Go to **File > New IBM i**, enter the IP address, and click **NEW** for each partition.
 
-   ![alt](../assets/images/performance-navigator/perfnav-20.jpg)
+   ![alt](/assets/images/performance-navigator/perfnav-020.jpg)
 
-![alt](../assets/images/performance-navigator/perfnav-21.jpg)
+![alt](/assets/images/performance-navigator/perfnav-021.jpg)
 
 
 ---
