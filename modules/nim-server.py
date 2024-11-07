@@ -3,8 +3,8 @@ from requests.auth import HTTPBasicAuth
 import json
 
 # Your Skytap "Login name" from the Skytap Portal and API token
-login_name='your-login-name-here'
-API_token='your-api-token-here'
+login_name='your_login_name'
+API_token='your_API_token'
 
 base_url = 'https://cloud.skytap.com/'
 
