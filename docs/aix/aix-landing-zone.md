@@ -58,5 +58,5 @@ Follow these assertive steps to efficiently migrate AIX systems from an on-premi
 **Important Note**: Be mindful that Skytap has a storage limitation of 4 TB for x86 VMs. This constraint means that using a Windows VM in Skytap with azcopy might not be feasible for handling large data volumes due to insufficient storage capacity. Plan accordingly to accommodate data management within these limits.
 
 
-👉[Deploy Skytap AIX Landing Zone](/docs/aix/code/readme.md)
+👉[Deploy Skytap AIX Landing Zone](/docs/aix/code/index.md)
 
