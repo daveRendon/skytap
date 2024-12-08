@@ -8,7 +8,7 @@ The Skytap AIX landing zone accelerator outlines the strategic design and target
 
 ![AIX Landing Zone Architecture](/assets/images/aix-landing-zone-architecture.jpg)
 
-👉[Deploy Skytap AIX Landing Zone](/docs/aix/code/readme.md)
+👉[Deploy Skytap AIX Landing Zone](/docs/aix/code/index.md)
 
 This architecture diagram outlines a structured approach for migrating AIX systems from an on-premises environment to Skytap on Azure. Let's explore each component and understand the flow of the migration process:
 
