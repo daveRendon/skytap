@@ -25,4 +25,3 @@ param dataDiskType = 'Premium_LRS'
 param vmSize = 'Standard_D16s_v5'
 param vmName = 'jumpbox-vm'
 param securityType = 'TrustedLaunch'
-
